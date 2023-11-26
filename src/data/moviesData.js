@@ -1,6 +1,8 @@
+const tmdbKey = '2a2bbf7628b4e562186c717a92969169';
+
 export const getCurrentMovies = async () => {
   const url =
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1?api_key=" + tmdbKey;
   const options = {
     method: "GET",
     headers: {
@@ -24,7 +26,7 @@ export const getCurrentMovies = async () => {
 };
 
 export const getUpcomingMovies = async () => {
-  const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+  const url = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1?api_key=" + tmdbKey;
   const options = {
     method: 'GET',
     headers: {
@@ -47,7 +49,7 @@ export const getUpcomingMovies = async () => {
 }
 
 export const getTopRatedMovies = async () => {
-  const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
+  const url = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1?api_key=" + tmdbKey;
   const options = {
     method: 'GET',
     headers: {
