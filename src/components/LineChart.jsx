@@ -1,29 +1,11 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import { mockLineData as data } from "../data/mockData";
-import { getTopRatedMovies } from "../data/moviesData";
 import { getUpcomingMovies } from "../data/moviesData";
 import { getCurrentMovies } from "../data/moviesData";
 
-const topRatedMovies = await getTopRatedMovies();
 const upcomingMovies = await getUpcomingMovies();
 const currentMovies = await getCurrentMovies();
-
-const topMoviesList = topRatedMovies.map((movie, i) => {
-  return {
-    x: movie.title,
-    y: movie.vote_average,
-  };
-});
-
-const topMovieObj = [
-  {
-    id: "top",
-    color: tokens("dark").greenAccent[500],
-    data: topMoviesList,
-  },
-];
 
 const upcomingMoviesList = upcomingMovies.map((movie, i) => {
   return {
@@ -34,14 +16,6 @@ const upcomingMoviesList = upcomingMovies.map((movie, i) => {
 
 upcomingMoviesList.sort((a, b) => (a.x > b.x ? 1 : b.x > a.x ? -1 : 0));
 upcomingMoviesList.splice(0, 6);
-
-const upcomingMovieObj = [
-  {
-    id: "upcoming",
-    color: tokens("dark").blueAccent[300],
-    data: upcomingMoviesList,
-  },
-];
 
 const currentMoviesList = currentMovies.map((movie, i) => {
   return {
@@ -62,14 +36,6 @@ const popularMoviesList = currentMovies.map((movie, i) => {
 });
 
 popularMoviesList.sort((a, b) => (a.x > b.x ? 1 : b.x > a.x ? -1 : 0));
-
-const currentMovieObj = [
-  {
-    id: "current",
-    color: tokens("dark").redAccent[200],
-    data: currentMoviesList,
-  },
-];
 
 let totalMoviesList = [
   // {

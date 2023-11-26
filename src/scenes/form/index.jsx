@@ -13,17 +13,11 @@ const initialValues = {
   address2: "",
 };
 
-const phoneRegExp =
-  /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-
 const userSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   email: yup.string().email("Invalid email").required("required"),
-  contact: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
+  contact: yup.string().required("required"),
   address1: yup.string().required("required"),
   address2: yup.string().required("required"),
 });
